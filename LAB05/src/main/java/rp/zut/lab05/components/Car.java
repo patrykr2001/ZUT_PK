@@ -1,17 +1,20 @@
 package rp.zut.lab05.components;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
+@Setter
+@Getter
 @Slf4j
 public class Car {
+    private int id;
     private Engine engine;
     private Transmission transmission;
     private String name;
     @Value("#{@engine.getFuelConsumption * ${car.route.lenght} / 100}")
     private Double roadFuelConsumption;
-    @Getter
     @Value("${car.route.lenght}")
     private int routeLength;
 

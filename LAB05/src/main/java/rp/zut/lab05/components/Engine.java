@@ -1,6 +1,7 @@
 package rp.zut.lab05.components;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,11 +10,14 @@ import rp.zut.lab05.exceptions.EngineNotStartedException;
 
 import java.util.Random;
 
+@Getter
 @Component
 @Slf4j
 public class Engine {
+    @Setter
+    private int id;
     private Oil oil;
-    @Getter
+    @Setter
     @Value("${engine.fuel.consumption}")
     private double fuelConsumption;
 
@@ -27,7 +31,7 @@ public class Engine {
     public void start() {
         Random random = new Random();
         if (random.nextBoolean()) {
-            throw new EngineNotStartedException("Engine failed to start");
+//            throw new EngineNotStartedException("Engine failed to start");
         }
         log.info("Engine started");
     }
