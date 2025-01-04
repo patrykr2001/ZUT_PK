@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {"rp.zut.lab07.repository"})
-@EntityScan("rp.zut.lab06.domain")
+@EntityScan("rp.zut.lab07.domain")
 public class Lab07Application {
 	public static void main(String[] args) {
 		log.info("STARTING THE APPLICATION");
