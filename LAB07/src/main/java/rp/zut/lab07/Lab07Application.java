@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @Slf4j
 @PropertySource("classpath:app.properties")
-@EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {"rp.zut.lab07.repository"})
 @EntityScan("rp.zut.lab07.domain")
+@EnableTransactionManagement
 public class Lab07Application {
 	public static void main(String[] args) {
 		log.info("STARTING THE APPLICATION");

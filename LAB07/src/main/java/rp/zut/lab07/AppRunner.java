@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 import rp.zut.lab07.domain.CarOwner;
 import rp.zut.lab07.domain.PureCar;
 import rp.zut.lab07.repository.CarOwnerRepository;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @Slf4j
 @Component
+@Transactional
 public class AppRunner implements CommandLineRunner {
     @Autowired
     private CarOwnerRepository carOwnerRepository;
@@ -23,6 +26,12 @@ public class AppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         log.info("EXECUTING : command line runner");
+
+        if (TransactionSynchronizationManager.isActualTransactionActive()) {
+            log.info("Transaction is active");
+        } else {
+            log.info("Transaction is not active");
+        }
 
         // Add a CarOwner
         CarOwner owner = new CarOwner();

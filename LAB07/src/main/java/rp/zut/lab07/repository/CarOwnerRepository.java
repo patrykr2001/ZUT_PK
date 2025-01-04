@@ -10,4 +10,5 @@ import java.util.List;
 public interface CarOwnerRepository extends JpaRepository<CarOwner, Long> {
     @Query("SELECT c FROM CarOwner c WHERE c.lastName = :lastName")
     List<CarOwner> searchByLastName(@Param("lastName") String lastName);
+
 }
